@@ -5,6 +5,12 @@
 sudo apt update && sudo apt upgrade -y
 ```
 
+**fix installation error because permission**
+```
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
+```
+
 **install guest addition virtual box**
 ```
 sudo apt install build-essential dkms linux-headers-$(uname -r)
