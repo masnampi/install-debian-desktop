@@ -14,7 +14,7 @@ sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 **install guest addition virtual box**
 ```
 sudo apt install build-essential dkms linux-headers-$(uname -r)
-mount lewat menu isonya
+#mount vbox iso first
 sudo mkdir /mnt/cdrom
 sudo mount /dev/cdrom /mnt/cdrom
 cd /mnt/cdrom
