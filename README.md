@@ -59,3 +59,11 @@ sudo apt install ./code_1.81.1-1691620686_amd64.deb
 
 sudo apt install vim nodejs npm htop -y
 ```
+
+**install nvidia driver**
+```
+su
+echo 'deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware' >> /etc/apt/sources.list
+apt update
+apt install nvidia-driver firmware-misc-nonfree
+```
