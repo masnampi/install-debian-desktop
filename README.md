@@ -11,6 +11,22 @@ sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
 sudo chmod -Rv 700 /var/cache/apt/archives/partial/
 ```
 
+**enable chrome remote desktop**
+```
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install xfce4 xfce4-goodies -y
+
+sudo adduser username (your chosen username)
+sudo usermod -aG sudo username  (your chosen username)
+su username (your chosen username)
+
+sudo wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
+sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
+
+https://remotedesktop.google.com/access
+```
+
 **install guest addition virtual box**
 ```
 sudo apt install build-essential dkms linux-headers-$(uname -r)
