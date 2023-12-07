@@ -96,8 +96,8 @@ sudo apt install vim nodejs npm htop -y
 
 **install nvidia driver**
 ```
-su
-echo 'deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware' >> /etc/apt/sources.list
-apt update
-apt install nvidia-driver firmware-misc-nonfree
+sudo apt install blueman
+sudo echo 'deb http://deb.debian.org/debian/ sid main contrib non-free non-free-firmware' >> /etc/apt/sources.list
+sudo apt update
+sudp apt install nvidia-driver firmware-misc-nonfree
 ```
