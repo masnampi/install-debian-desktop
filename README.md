@@ -79,11 +79,17 @@ sudo sh -c "echo deb https://dl.yarnpkg.com/debian stable main \
 
 sudo apt-get install yarn
 
+sudo apt purge firefox-esr*
+https://support.mozilla.org/en-US/kb/install-firefox-linux
+
 wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install ./chrome.deb
 
 wget https://az764295.vo.msecnd.net/stable/6c3e3dba23e8fadc360aed75ce363ba185c49794/code_1.81.1-1691620686_amd64.deb
 sudo apt install ./code_1.81.1-1691620686_amd64.deb
+
+https://portswigger.net/burp/communitydownload
+sudo sh burpsuite_community_linux_v2023_10_3_7.sh 
 
 sudo apt install vim nodejs npm htop -y
 ```
