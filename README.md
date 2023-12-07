@@ -1,27 +1,5 @@
 # Clean Install And Configure Debian Desktop
 
-**update and upgrade debian**
-```
-sudo apt update && sudo apt upgrade -y
-```
-
-**fix installation error because permission**
-```
-sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
-sudo chmod -Rv 700 /var/cache/apt/archives/partial/
-```
-
-**install guest addition virtual box**
-```
-sudo apt install build-essential dkms linux-headers-$(uname -r)
-#mount vbox iso first
-sudo mkdir /mnt/cdrom
-sudo mount /dev/cdrom /mnt/cdrom
-cd /mnt/cdrom
-sudo sh ./VBoxLinuxAdditions.run --nox11
-sudo reboot
-```
-
 **add user**
 ```
 sudo adduser anonymous
@@ -37,6 +15,40 @@ echo 'anonymous ALL=(ALL:ALL) ALL' >> /etc/sudoers
 su - anonymous
 ```
 
+**fix update sourcelist**
+```
+sudo vim /etc/apt/sources.list
+
+deb http://deb.debian.org/debian/ bookworm main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm main non-free-firmware
+
+deb http://security.debian.org/debian-security/ bookworm-security main non-free-firmware
+deb-src http://security.debian.org/debian-security/ bookworm-security main non-free-firmware
+
+# bookworm-updates, to get updates before a point release is made;
+# see https://www.debian.org/doc/manuals/debi ... _backports
+deb http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware 
+
+:wq
+```
+
+**update and upgrade debian**
+```
+sudo apt update && sudo apt upgrade -y
+```
+
+**fix installation error because permission**
+```
+sudo chown -Rv _apt:root /var/cache/apt/archives/partial/
+sudo chmod -Rv 700 /var/cache/apt/archives/partial/
+```
+
+**configure timezone**
+```
+sudo dpkg-reconfigure tzdata
+```
+
 **enable chrome remote desktop**
 ```
 sudo apt install xfce4 xfce4-goodies -y
@@ -47,9 +59,15 @@ sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
 https://remotedesktop.google.com/access
 ```
 
-**configure timezone**
+**install guest addition virtual box**
 ```
-sudo dpkg-reconfigure tzdata
+sudo apt install build-essential dkms linux-headers-$(uname -r)
+#mount vbox iso first
+sudo mkdir /mnt/cdrom
+sudo mount /dev/cdrom /mnt/cdrom
+cd /mnt/cdrom
+sudo sh ./VBoxLinuxAdditions.run --nox11
+sudo reboot
 ```
 
 **install app**
